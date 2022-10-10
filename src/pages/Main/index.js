@@ -18,43 +18,17 @@ import Nothing from './Nothing';
 import TodayList from '../../components/TodayList';
 
 const Home = () => {
-  //임시로 넣어둔 todo 리스트
   const [todos, setTodos] = useState([]);
-  /*
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      content: '아침밥 먹기',
-      checked: false,
-      memo: '',
-      date: '',
-    },
-    {
-      id: 2,
-      content: '점심밥 먹기',
-      checked: true,
-      memo: '',
-      date: '',
-    },
-    {
-      id: 3,
-      content: '저녁밥 먹기',
-      checked: false,
-      memo: '',
-      date: '',
-    },
-  ]);
-  */
 
-  const nextId = useRef(4);
+  const nextId = useRef(1);
   //todo 추가 함수
   const onInsert = useCallback(
-    (content) => {
+    (inputs) => {
       const todo = {
         id: nextId.current,
-        content,
+        content: inputs.content,
         checked: false,
-        //memo,
+        memo: inputs.memo,
       };
       setTodos(todos.concat(todo));
       nextId.current += 1;

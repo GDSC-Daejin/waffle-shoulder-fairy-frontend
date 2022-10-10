@@ -109,12 +109,13 @@ export const TodoContent = styled.p`
   width: 100%;
   font-size: 1rem;
   color: #3d3d3d;
+  cursor: pointer;
   ${({ isCompleted }) =>
     isCompleted &&
     css`
       text-decoration: line-through;
       color: grey};
-    `}
+    `};
 `;
 export const TodoNothing = styled.p`
   font-size: 0.9rem;
