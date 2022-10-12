@@ -1,5 +1,5 @@
 import React from 'react';
-import { EmptyText, ImgWrapper, WindImg } from '../Main/styled';
+import { EmptyText, ImgWrapper, WindImg } from './styled';
 const Nothing = () => {
   return (
     <span>
