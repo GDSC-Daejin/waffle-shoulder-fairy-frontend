@@ -7,8 +7,9 @@ import {
   TodoItemWrapper,
 } from './styled';
 import Modal from '../Modal';
+import { todoZustandStore } from '../../store/todoZustandStore';
 
-const TodoListItem = ({ todo, onRemove, onToggle }) => {
+const TodoListItem = ({ todo }) => {
   const { id, content, checked, memo } = todo;
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -18,13 +19,13 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
-
+  const { removeTodo, toggleCompletedTodo, updateTodo } = todoZustandStore();
   return (
     <TodoItemWrapper>
       <CheckInput
         type="checkbox"
         defaultChecked={checked}
-        onClick={() => onToggle(id)}
+        onClick={() => toggleCompletedTodo(id)}
       />
       <TodoContent onClick={openModal} isCompleted={checked}>
         {content}
@@ -36,7 +37,7 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
       )}
 
       <EditBtn />
-      <RemoveBtn onClick={() => onRemove(id)} />
+      <RemoveBtn onClick={() => removeTodo(id)} />
     </TodoItemWrapper>
   );
 };

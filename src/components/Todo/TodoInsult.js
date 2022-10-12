@@ -8,12 +8,14 @@ import {
   TodoInput,
   TodoInputWrapper,
 } from './styled';
+import { todoZustandStore } from '../../store/todoZustandStore';
 
-const TodoInsult = ({ onInsert }) => {
+const TodoInsult = () => {
   const [inputs, setInputs] = useState({
     content: '',
     memo: '',
   });
+  const { addTodo } = todoZustandStore();
 
   const { content, memo } = inputs; // 비구조화 할당을 통해 값 추출
 
@@ -27,34 +29,15 @@ const TodoInsult = ({ onInsert }) => {
 
   const onSubmit = useCallback(
     (e) => {
-      onInsert(inputs);
+      addTodo(inputs);
       setInputs({
         content: '',
         memo: '',
       });
       e.preventDefault();
     },
-    [onInsert, inputs],
+    [addTodo, inputs],
   );
-
-  //지금 상태는 todo의 content(내용)만 받고 있습니다!
-  //위에 주석을 달아놓은 코드는 memo까지 같이 받아 넘겨주는 함수 구현 중입니다!
-
-  // const [content, setContent] = useState('');
-
-  // // 키보드 입력을 받는 함수
-  // const onChange = useCallback((e) => {
-  //   setContent(e.target.value);
-  // }, []);
-  // todo 제출 함수
-  // const onSubmit = useCallback(
-  //   (e) => {
-  //     onInsert(content);
-  //     setContent('');
-  //     e.preventDefault();
-  //   },
-  //   [onInsert, inputs],
-  // );
 
   return (
     <TodoInputWrapper>
