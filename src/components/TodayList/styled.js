@@ -5,7 +5,7 @@ export const ContentWrapper = styled.div`
   min-height: 15vw;
   border-radius: 7px;
   box-shadow: 2px 1px 5px 1px rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: relative;
   flex-direction: column;
   justify-content: center;
   margin: 2rem auto;
@@ -16,6 +16,7 @@ export const ListTitle = styled.p`
   color: #424242;
   display: flex;
   justify-content: center;
+  padding-top: 1rem;
 `;
 export const TodoNothing = styled.p`
   font-size: 0.9rem;
