@@ -7,7 +7,11 @@ import {
   ListTitle,
   TodoNothing,
 } from './styled';
+import { todoZustandStore } from '../../store/todoZustandStore';
+
 const TodayList = ({ todos }) => {
+  const { toggleCompletedTodo } = todoZustandStore();
+
   let show;
   if (todos.length === 0) {
     //todos에 값이 하나도 없을 경우 Nothing 화면 띄움
@@ -18,8 +22,12 @@ const TodayList = ({ todos }) => {
       <>
         {todos.map((todo) => (
           <ItemWrapper key={todo.id}>
-            <ListCheck type="checkbox" defaultChecked={todo.checked} />
-            <ListItem isCompleted={todo.checked}>{todo.content}</ListItem>
+            <ListCheck
+              onClick={() => toggleCompletedTodo(todo.id)}
+              type="checkbox"
+              checked={todo.isCompleted || false}
+            />
+            <ListItem isCompleted={todo.isCompleted}>{todo.content}</ListItem>
           </ItemWrapper>
         ))}
         ;

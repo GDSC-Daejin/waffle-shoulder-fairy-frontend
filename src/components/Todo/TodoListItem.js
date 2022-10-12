@@ -10,7 +10,7 @@ import Modal from '../Modal';
 import { todoZustandStore } from '../../store/todoZustandStore';
 
 const TodoListItem = ({ todo }) => {
-  const { id, content, checked, memo } = todo;
+  const { id, content, isCompleted, memo } = todo;
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -24,10 +24,10 @@ const TodoListItem = ({ todo }) => {
     <TodoItemWrapper>
       <CheckInput
         type="checkbox"
-        defaultChecked={checked}
+        checked={isCompleted || false}
         onClick={() => toggleCompletedTodo(id)}
       />
-      <TodoContent onClick={openModal} isCompleted={checked}>
+      <TodoContent onClick={openModal} isCompleted={isCompleted}>
         {content}
       </TodoContent>
       {modalOpen && (

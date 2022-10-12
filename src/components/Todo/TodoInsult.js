@@ -27,6 +27,20 @@ const TodoInsult = () => {
     });
   };
 
+  const addTodoHandler = (e) => {
+    //내용이 입력되었으면 TODO 추가
+    if (inputs.content) {
+      addTodo(inputs);
+      setInputs({
+        content: '',
+        memo: '',
+      });
+    } else {
+      //내용이 없으면 알림
+      alert('일정은 필수적으로 입력해주세요.');
+    }
+    e.preventDefault();
+  };
   const onSubmit = useCallback(
     (e) => {
       addTodo(inputs);
@@ -51,7 +65,7 @@ const TodoInsult = () => {
           onChange={onChange}
         />
         {/* 추가 버튼 */}
-        <AddBtn onClick={onSubmit} />
+        <AddBtn onClick={addTodoHandler} />
         <Hr />
         {/* 메모 작성 */}
         <MemoInput
