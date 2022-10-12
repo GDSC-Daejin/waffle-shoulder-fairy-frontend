@@ -1,7 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
 import {
-  EmptyText,
-  ImgWrapper,
   InputWrapper,
   LayoutContainer,
   Main,
@@ -10,7 +8,6 @@ import {
   UserImg,
   UserName,
   UserText,
-  WindImg,
 } from './styled';
 import TodoInsult from '../../components/Todo/TodoInsult';
 import TodoList from '../../components/Todo/TodoList';
@@ -49,12 +46,12 @@ const Home = () => {
   const nextId = useRef(4);
   //todo 추가 함수
   const onInsert = useCallback(
-    (content) => {
+    (inputs) => {
       const todo = {
         id: nextId.current,
-        content,
+        content: inputs.content,
         checked: false,
-        //memo,
+        memo: inputs.memo,
       };
       setTodos(todos.concat(todo));
       nextId.current += 1;
