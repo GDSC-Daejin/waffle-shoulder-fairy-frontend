@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import './reset.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flex: '1 0 auto',
+          minHeight: '100vh',
+        }}
+      >
+        <App />
+      </div>
     </BrowserRouter>
   </React.StrictMode>,
 );
