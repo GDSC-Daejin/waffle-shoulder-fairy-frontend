@@ -3,7 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
-    font-size: 10px;
     word-break: keep-all;
     -webkit-tap-highlight-color: transparent;
     transition: color, background-color 0.3s ease-in-out;
@@ -36,8 +35,6 @@ const GlobalStyles = createGlobalStyle`
   html{
     background: ${({ theme }) => theme.colors.background};
   }
-
-
   a {
     text-decoration: none;
   }
