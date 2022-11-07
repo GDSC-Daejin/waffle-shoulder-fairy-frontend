@@ -5,11 +5,11 @@ import GlobalStyles from './styles/globalStyles';
 
 function App() {
   return (
-    <ThemeProvider>
+    <>
       <GlobalStyles />
       <Header />
       <Routes />
-    </ThemeProvider>
+    </>
   );
 }
 

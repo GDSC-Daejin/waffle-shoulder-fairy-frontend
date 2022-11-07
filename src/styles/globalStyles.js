@@ -23,7 +23,6 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 10px;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -32,9 +31,6 @@ const GlobalStyles = createGlobalStyle`
     display: block;
   }
 
-  html{
-    background: ${({ theme }) => theme.colors.background};
-  }
   a {
     text-decoration: none;
   }
