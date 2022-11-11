@@ -1,21 +1,14 @@
-import React from 'react';
-
-const DropDown = ({ todo, onRemove, onToggle }) => {
-    const { id, content, memo, checked } = todo;
-  
-    return (
-      <TodoItemWrapper>
-        <CheckInput
-          type="checkbox"
-          defaultChecked={checked}
-          onClick={() => onToggle(id)}
-        />
-        <TodoContent isCompleted={checked}>{content}</TodoContent>
-        <MemoContent>{memo}</MemoContent>
-        <EditBtn />
-        <RemoveBtn onClick={() => onRemove(id)} />
-      </TodoItemWrapper>
-    );
-  };
-
+import React, { useState } from 'react';
+function DropDown() {
+  const [selects, setSelects] = useState();
+  return (
+    <div>
+      {/*<h1>{selects}</h1>*/}
+      <select value={selects} onChange={e => setSelects(e.target.value)}>
+        <option>동아리</option>
+        <option>학교</option>
+      </select>
+    </div>
+  );
+}
 export default DropDown;

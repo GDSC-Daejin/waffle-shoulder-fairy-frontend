@@ -164,3 +164,9 @@ export const EditBtn = styled(EditIcon)`
     fill: grey;
   }
 `;
+
+export const DropDowns = styled.div`
+  margin-right: 0.7rem;
+  width: 1.8rem;
+  height: 1.8rem;
+`

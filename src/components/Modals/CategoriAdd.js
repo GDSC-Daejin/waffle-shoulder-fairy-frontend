@@ -11,7 +11,7 @@ const CategoriAdd = ({ show, onHide }) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    카테고리 추가
+                    add categori
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -26,7 +26,7 @@ const CategoriAdd = ({ show, onHide }) => {
                 <Button variant="primary" type="button">
                     ADD
                 </Button>
-                <Button onClick={onHide}>모달 닫기</Button>
+                <Button onClick={onHide}>close</Button>
             </Modal.Footer>
         </Modal>
     )

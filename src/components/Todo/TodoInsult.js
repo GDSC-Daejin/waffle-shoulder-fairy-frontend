@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import CategoriAdd from '../Modals/CategoriAdd';
+import DropDown from './DropDown';
 import {
   AddBtn,
   CalendarBtn,
@@ -9,6 +10,7 @@ import {
   TagBtn,
   TodoInput,
   TodoInputWrapper,
+  
 } from './styled';
 
 const TodoInsult = ({ onInsert }) => {
@@ -43,7 +45,7 @@ const TodoInsult = ({ onInsert }) => {
   return (
     <TodoInputWrapper>
       {/* 모달 */}
-      <CategoriAdd show={addModalOn} onHide={()=>setAddModalOn(false)} />
+      <CategoriAdd show={addModalOn} onHide={() => setAddModalOn(false)} />
       <form>
         {/* 내용 작성 */}
         <TodoInput
@@ -70,6 +72,7 @@ const TodoInsult = ({ onInsert }) => {
         <TagBtn />
         {/* 달력 버튼 */}
         <CalendarBtn />
+        <DropDown />
       </form>
       <CateBtn onClick={() => setAddModalOn(true)}>카테 추가</CateBtn>
       <CateBtn>카테 수정</CateBtn>

@@ -2,6 +2,7 @@ import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Main';
 import Error from './pages/Error';
+
 function App() {
   return (
     <>

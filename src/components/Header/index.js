@@ -13,7 +13,7 @@ const Header = () => {
         <HeaderTitle to={'/'}>Time Fairy</HeaderTitle>
         <ItemWrapper>
           <HeaderItem to={'/mypage'}>MY PAGE</HeaderItem>
-          <HeaderItem to={'/login'}>LOGIN</HeaderItem>
+          <HeaderItem to={'/Login'}>LOGIN</HeaderItem>
         </ItemWrapper>
       </HeaderSection>
     </HeaderWrapper>
