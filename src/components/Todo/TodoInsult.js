@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import CategoriAdd from '../Modals/CategoriAdd';
 import {
   AddBtn,
   CalendarBtn,
@@ -16,7 +17,8 @@ const TodoInsult = ({ onInsert }) => {
     memo: '',
   });
   const { content, memo } = inputs; // 비구조화 할당을 통해 값 추출
-
+  //모달설정 useState
+  const [addModalOn, setAddModalOn] = useState(false);
   // 키보드 입력을 받는 함수
   const onChange = (e) => {
     const { value, name } = e.target; //e.target에서 name,value 추출
@@ -40,6 +42,8 @@ const TodoInsult = ({ onInsert }) => {
   );
   return (
     <TodoInputWrapper>
+      {/* 모달 */}
+      <CategoriAdd show={addModalOn} onHide={()=>setAddModalOn(false)} />
       <form>
         {/* 내용 작성 */}
         <TodoInput
@@ -67,7 +71,7 @@ const TodoInsult = ({ onInsert }) => {
         {/* 달력 버튼 */}
         <CalendarBtn />
       </form>
-      <CateBtn>카테 추가</CateBtn>
+      <CateBtn onClick={() => setAddModalOn(true)}>카테 추가</CateBtn>
       <CateBtn>카테 수정</CateBtn>
     </TodoInputWrapper>
   );

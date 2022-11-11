@@ -56,6 +56,11 @@ export const AddBtn = styled(AddIcon)`
     transition: all ease 0.2s 0s;
   }
 `;
+export const CateBtn = styled.button`
+  position: absolue;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
 export const TagBtn = styled(TagIcon)`
   width: 1.5rem;
   height: 1.5rem;
@@ -109,6 +114,28 @@ export const TodoContent = styled.p`
   width: 100%;
   font-size: 1rem;
   color: #3d3d3d;
+  cursor: pointer;
+  ${({ isCompleted }) =>
+    isCompleted &&
+    css`
+      text-decoration: line-through;
+      color: grey};
+    `};
+`;
+
+export const MemoContent = styled.p`
+  display: felx;
+  width: 15%;
+  text-ailne: center;
+  align-items: center;
+
+  background-color: yellow;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 5px:
+  border-radius: 10px;
+  font-size: 1rem;
+  color: black;
   cursor: pointer;
   ${({ isCompleted }) =>
     isCompleted &&
