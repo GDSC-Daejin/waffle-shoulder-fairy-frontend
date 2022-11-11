@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import {
   AddBtn,
   CalendarBtn,
+  CateBtn,
   Hr,
   MemoInput,
   TagBtn,
@@ -37,7 +38,6 @@ const TodoInsult = ({ onInsert }) => {
     },
     [onInsert, inputs],
   );
-
   return (
     <TodoInputWrapper>
       <form>
@@ -54,7 +54,7 @@ const TodoInsult = ({ onInsert }) => {
         <Hr />
         {/* 메모 작성 */}
         <MemoInput
-          placeholder="상세설명"
+          placeholder="카테고리"
           name="memo"
           type={'text'}
           value={memo}
@@ -67,6 +67,8 @@ const TodoInsult = ({ onInsert }) => {
         {/* 달력 버튼 */}
         <CalendarBtn />
       </form>
+      <CateBtn>카테 추가</CateBtn>
+      <CateBtn>카테 수정</CateBtn>
     </TodoInputWrapper>
   );
 };
