@@ -1,7 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
 import {
-  EmptyText,
-  ImgWrapper,
   InputWrapper,
   LayoutContainer,
   Main,
@@ -10,7 +8,6 @@ import {
   UserImg,
   UserName,
   UserText,
-  WindImg,
 } from './styled';
 import TodoInsult from '../../components/Todo/TodoInsult';
 import TodoList from '../../components/Todo/TodoList';
