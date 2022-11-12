@@ -13,10 +13,10 @@ import TodoInsult from '../../components/Todo/TodoInsult';
 import TodoList from '../../components/Todo/TodoList';
 import Nothing from './Nothing';
 import TodayList from '../../components/TodayList';
-import { todoZustandStore } from '../../store/todoZustandStore';
+import { todoState } from '../../store/todoState';
 
 const Home = () => {
-  const { todos } = todoZustandStore();
+  const { todos } = todoState();
 
   //조건부 렌더링
   let show;

@@ -7,10 +7,10 @@ import {
   ListTitle,
   TodoNothing,
 } from './styled';
-import { todoZustandStore } from '../../store/todoZustandStore';
+import { todoState } from '../../store/todoState';
 
 const TodayList = ({ todos }) => {
-  const { toggleCompletedTodo } = todoZustandStore();
+  const { toggleCompletedTodo } = todoState();
 
   let show;
   if (todos.length === 0) {

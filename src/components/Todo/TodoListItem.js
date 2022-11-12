@@ -7,7 +7,7 @@ import {
   TodoItemWrapper,
 } from './styled';
 import Modal from '../Modal';
-import { todoZustandStore } from '../../store/todoZustandStore';
+import { todoState } from '../../store/todoState';
 
 const TodoListItem = ({ todo }) => {
   const { id, content, isCompleted, memo } = todo;
@@ -19,7 +19,7 @@ const TodoListItem = ({ todo }) => {
   const closeModal = () => {
     setModalOpen(false);
   };
-  const { removeTodo, toggleCompletedTodo, updateTodo } = todoZustandStore();
+  const { removeTodo, toggleCompletedTodo, updateTodo } = todoState();
   return (
     <TodoItemWrapper>
       <CheckInput

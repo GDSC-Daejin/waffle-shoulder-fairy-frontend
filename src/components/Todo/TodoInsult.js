@@ -8,14 +8,14 @@ import {
   TodoInput,
   TodoInputWrapper,
 } from './styled';
-import { todoZustandStore } from '../../store/todoZustandStore';
+import { todoState } from '../../store/todoState';
 
 const TodoInsult = () => {
   const [inputs, setInputs] = useState({
     content: '',
     memo: '',
   });
-  const { addTodo } = todoZustandStore();
+  const { addTodo } = todoState();
 
   const { content, memo } = inputs; // 비구조화 할당을 통해 값 추출
 
