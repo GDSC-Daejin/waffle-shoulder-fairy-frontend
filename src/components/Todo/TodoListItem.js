@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CheckInput,
   EditBtn,
@@ -6,20 +6,38 @@ import {
   TodoContent,
   TodoItemWrapper,
 } from './styled';
+import Modal from '../Modal';
+import { todoState } from '../../store/todoState';
 
-const TodoListItem = ({ todo, onRemove, onToggle }) => {
-  const { id, content, checked } = todo;
+const TodoListItem = ({ todo }) => {
+  const { id, content, isCompleted, memo } = todo;
+  const [modalOpen, setModalOpen] = useState(false);
 
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+  const { removeTodo, toggleCompletedTodo, updateTodo } = todoState();
   return (
     <TodoItemWrapper>
       <CheckInput
         type="checkbox"
-        defaultChecked={checked}
-        onClick={() => onToggle(id)}
+        checked={isCompleted || false}
+        onClick={() => toggleCompletedTodo(id)}
       />
-      <TodoContent isCompleted={checked}>{content}</TodoContent>
+      <TodoContent onClick={openModal} isCompleted={isCompleted}>
+        {content}
+      </TodoContent>
+      {modalOpen && (
+        <Modal open={modalOpen} close={closeModal} content={content}>
+          {memo}
+        </Modal>
+      )}
+
       <EditBtn />
-      <RemoveBtn onClick={() => onRemove(id)} />
+      <RemoveBtn onClick={() => removeTodo(id)} />
     </TodoItemWrapper>
   );
 };

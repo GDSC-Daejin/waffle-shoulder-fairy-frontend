@@ -102,7 +102,6 @@ export const TodoItemWrapper = styled.div`
   align-items: center;
   height: 2.5rem;
   width: 55vw;
-
   border-bottom: 1px solid #a6a6a6;
 `;
 export const TodoContent = styled.p`
