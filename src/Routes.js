@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes as ReactRoutes, Route } from 'react-router-dom';
 import Error from './pages/Error';
-import Home from './pages/Main';
+import Home from './pages/Home';
 
 const Routes = () => {
   return (

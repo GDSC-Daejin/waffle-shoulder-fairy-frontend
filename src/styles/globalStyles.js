@@ -30,7 +30,6 @@ const GlobalStyles = createGlobalStyle`
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
-
   a {
     text-decoration: none;
   }

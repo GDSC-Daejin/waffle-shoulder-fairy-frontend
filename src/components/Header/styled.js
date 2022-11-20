@@ -2,23 +2,21 @@ import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 
 export const HeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   background: aliceblue;
-  display: flex;
   box-shadow: 3px 3px lightgray;
   position: relative;
-  height: 3rem;
 `;
 export const HeaderTitle = styled(Link)`
-  font-size: 1.5rem;
-  display: inline-block;
+  font-size: 1.4rem;
   align-items: center;
   font-weight: bold;
   cursor: pointer;
   color: black;
-  margin: 0.5rem 2.4rem 0 1.5rem;
   text-decoration: none;
-
   &:hover,
   &:focus {
     color: #404040;
@@ -27,10 +25,8 @@ export const HeaderTitle = styled(Link)`
 `;
 export const HeaderItem = styled(NavLink)`
   font-size: 0.9rem;
-  margin-right: 2rem;
   display: inline-block;
   cursor: pointer;
-  margin-top: 1rem;
   text-decoration: none;
   color: black;
   &:hover,
@@ -41,8 +37,13 @@ export const HeaderItem = styled(NavLink)`
 `;
 
 export const ItemWrapper = styled.div`
-  float: right;
+  display: flex;
+  gap: 20px;
 `;
 export const HeaderSection = styled.div`
-  width: 100%;
+  width: 92%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;

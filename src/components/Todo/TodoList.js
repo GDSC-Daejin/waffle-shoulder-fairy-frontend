@@ -1,12 +1,19 @@
 import React from 'react';
 import TodoListItem from './TodoListItem';
 import { TodoListWrapper } from './styled';
+import { todoState } from '../../store/todoState';
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ onRemove, onToggle }) => {
+  const todos = todoState((state) => state.todos);
   return (
     <TodoListWrapper>
       {todos.map((todo) => (
-        <TodoListItem todo={todo} key={todo.id} />
+        <TodoListItem
+          todo={todo}
+          key={todo.id}
+          onRemove={onRemove}
+          onToggle={onToggle}
+        />
       ))}
     </TodoListWrapper>
   );

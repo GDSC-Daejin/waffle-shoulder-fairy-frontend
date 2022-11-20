@@ -3,10 +3,11 @@ import create from 'zustand';
 //devtools import
 import { devtools } from 'zustand/middleware';
 import { getTodoList, removeTodo, updateTodo } from '../apis/todo';
+import { mockTodoList } from '../mock/todo';
 
 export const todoState = create(
   devtools((set) => ({
-    todos: [],
+    todos: mockTodoList,
 
     getTodos: async () =>
       set(async (state) => {
