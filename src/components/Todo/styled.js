@@ -18,6 +18,7 @@ export const TodoInputWrapper = styled.div`
 `;
 export const TodoInput = styled.input`
   width: 47vw;
+  //TODO styled-component에서 props로 받아오는 방법에 대해서 공부하면 될 것 같아요.
   height: ${(props) => props.height || '3rem'};
   font-size: ${(props) => props.size || '1rem'};
   border: none;
@@ -43,6 +44,7 @@ export const Hr = styled.div`
   height: 1px;
   color: grey;
 `;
+//TODO Btn같이 약어? 같은건 지양하시는게 좋습니다. ex) AddButton
 export const AddBtn = styled(AddIcon)`
   fill: grey;
   cursor: pointer;
@@ -58,6 +60,7 @@ export const AddBtn = styled(AddIcon)`
 `;
 export const CateBtn = styled.button`
   position: absolute;
+  //TODO margin같은 경우에 줄일 수 있습니다. margin: 0.5rem -> 모든 방향에 0.5 마진이 들어가요
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   margin-right: 0.5rem;
@@ -128,6 +131,7 @@ export const TodoContent = styled.p`
 
 export const MemoContent = styled.p`
   display: flex;
+  //TODO %값도 사전에 합의된게 아니라면 지양해주세요
   width: 15%;
   text-align: center;
   align-items: center;
@@ -168,6 +172,7 @@ export const EditBtn = styled(EditIcon)`
   }
 `;
 
+//TODO 하나의 태그이니 복수형은 지양해주세요
 export const SelectBoxs = styled.div`
   display: flex;
   align-item: left;

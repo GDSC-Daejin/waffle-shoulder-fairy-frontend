@@ -1,4 +1,4 @@
-const mockTodoList = [
+export const mockTodoList = [
   // 데이터 형식 합의보기 -> number? string? boolean?
   // key, value 값을 어떻게 할지 상의하기
   // date 형식 ISO 8601 형식?
