@@ -1,17 +1,23 @@
 import { Instance } from './instance';
-
-export const getTodoList = async () => {
-  return await Instance.get('/todo');
+//http://34.64.114.243:8080
+//조회
+export const getTodoList = async (categoryId) => {
+  return await Instance.get('/category/${categoryId}/todo');
 };
-
-export const addTodo = async (payload) => {
-  return await Instance.post('/todo', payload);
+//등록
+export const addTodo = async (payload, categoryId) => {
+  return await Instance.post('/category/${categoryId}/todo', {
+    categoryId: categoryId, //카테고리 아이디
+    content: 'string', //일정
+    isChecked: true, //체크
+    memo: 'string', //상세메모
+  });
 };
-
-export const removeTodo = async (id) => {
-  return await Instance.delete(`/todo/${id}`);
+//삭제
+export const removeTodo = async (categoryId) => {
+  return await Instance.delete('/category/${categoryId}/todo');
 };
-
-export const updateTodo = async (payload, id) => {
-  return await Instance.put(`/todo/${id}`, payload);
+//수정
+export const updateTodo = async (payload, categoryId) => {
+  return await Instance.put('/category/${categoryId}/todo', payload);
 };

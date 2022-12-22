@@ -2,7 +2,7 @@ import create from 'zustand';
 
 //devtools import
 import { devtools } from 'zustand/middleware';
-import { getTodoList, removeTodo, updateTodo } from '../apis/todo';
+import { addTodo, getTodoList, removeTodo, updateTodo } from '../apis/todo';
 import { mockTodoList } from '../mock/todo';
 
 export const todoState = create(
@@ -14,7 +14,7 @@ export const todoState = create(
         const { data } = await getTodoList();
         return { todos: data };
       }),
-    addTodo: (payload) => set(async (state) => await updateTodo(payload)),
+    addTodo: (payload) => set(async (state) => await addTodo(payload)),
     removeTodo: (id) =>
       set(async (state) => {
         await removeTodo(id);
