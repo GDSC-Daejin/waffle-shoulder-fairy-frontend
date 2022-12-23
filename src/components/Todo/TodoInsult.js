@@ -8,6 +8,9 @@ import {
   TodoInputWrapper,
 } from './styled';
 import { todoState } from '../../store/todoState';
+import SelectBox from './SelectBox';
+
+const categoryOptions = ['동아리', '학교', '취미'];
 
 const TodoInsult = ({ onInsert }) => {
   const [inputs, setInputs] = useState({
@@ -65,6 +68,16 @@ const TodoInsult = ({ onInsert }) => {
           onChange={onChange}
           size={'0.8rem'}
           height={'2rem'}
+        />
+        <SelectBox
+          value={inputs.category}
+          setValue={(value) => {
+            setInputs((state) => ({
+              ...state,
+              category: value,
+            }));
+          }}
+          options={categoryOptions}
         />
         {/* 카테고리 버튼 */}
         {/*<TagBtn />*/}
