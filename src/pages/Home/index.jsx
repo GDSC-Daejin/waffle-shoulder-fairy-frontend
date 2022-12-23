@@ -4,6 +4,7 @@ import TodoInsult from '../../components/Todo/TodoInsult';
 import TodoList from '../../components/Todo/TodoList';
 //import { mockTodoList } from '../../mock/todo';
 //import { todoState } from '../../store/todoState';
+import ToDoEdit from '../../components/Todo/TodoEdit';
 
 const Home = () => {
   const [todos, setTodos] = useState([
@@ -14,6 +15,7 @@ const Home = () => {
     },
   ]);
   const nextId = useRef(2);
+  //투두추가
   const onInsert = useCallback(
     (content) => {
       const todo = {
@@ -26,16 +28,31 @@ const Home = () => {
     },
     [todos],
   );
+  //투두삭제
   const onRemove = useCallback(
     (id) => {
       setTodos(todos.filter((todo) => todo.id !== id));
     },
     [todos],
   );
+  //투두수정
+  const [insertToggle, setInsertToggle] = useState(false); //플래그 역할을 해줄 state
+  const [selectedTodo, setSelectedTodo] = useState(null);
+  const onInsertToggle = () => {
+    if (selectedTodo) {
+      setSelectedTodo(null);
+    }
+    setInsertToggle((prev) => !prev);
+  };
+  //수정아이콘 onClick event 함수
+  const onChangeSelectedTodo = (todo) => {
+    setSelectedTodo(todo);
+  };
   return (
     <>
       <InputWrapper>
         <TodoInsult onInsert={onInsert} />
+        {insertToggle && <ToDoEdit />}
       </InputWrapper>
       <TodoList todos={todos} onRemove={onRemove} />
     </>

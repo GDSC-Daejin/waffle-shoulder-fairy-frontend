@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import {
   AddBtn,
-  CalendarBtn,
   Hr,
-  //MemoInput,
-  TagBtn,
+  MemoInput,
+  //TagBtn,
   TodoInput,
   TodoInputWrapper,
 } from './styled';
@@ -13,10 +12,11 @@ import { todoState } from '../../store/todoState';
 const TodoInsult = ({ onInsert }) => {
   const [inputs, setInputs] = useState({
     content: '',
+    category: '',
   });
   const { addTodo } = todoState();
 
-  const { content } = inputs; // 비구조화 할당을 통해 값 추출
+  const { content, category } = inputs; // 비구조화 할당을 통해 값 추출
 
   const onChange = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -33,6 +33,7 @@ const TodoInsult = ({ onInsert }) => {
       addTodo(inputs);
       setInputs({
         content: '',
+        category: '',
       });
     } else {
       //내용이 없으면 알림
@@ -56,19 +57,17 @@ const TodoInsult = ({ onInsert }) => {
         <AddBtn type="submit" onClick={addTodoHandler} />
         <Hr />
         {/* 메모 작성 */}
-        {/*<MemoInput*/}
-        {/*  placeholder="카테고리"*/}
-        {/*  name="memo"*/}
-        {/*  type={'text'}*/}
-        {/*  value={memo}*/}
-        {/*  onChange={onChange}*/}
-        {/*  size={'0.8rem'}*/}
-        {/*  height={'2rem'}*/}
-        {/*/>*/}
+        <MemoInput
+          placeholder="카테고리"
+          name="category"
+          type={'text'}
+          value={category}
+          onChange={onChange}
+          size={'0.8rem'}
+          height={'2rem'}
+        />
         {/* 카테고리 버튼 */}
-        <TagBtn />
-        {/* 달력 버튼 */}
-        <CalendarBtn />
+        {/*<TagBtn />*/}
       </form>
     </TodoInputWrapper>
   );

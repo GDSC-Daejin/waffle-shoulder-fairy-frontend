@@ -10,7 +10,7 @@ const TodayListSection = ({ todos }) => {
   return (
     <>
       {isEmpty ? (
-        <div>비어있어염</div>
+        <div>비어있습니다</div>
       ) : (
         <>
           {todos.map((todo) => (

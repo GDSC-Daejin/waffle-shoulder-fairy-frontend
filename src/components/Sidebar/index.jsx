@@ -10,7 +10,7 @@ const Sidebar = () => {
     <>
       <ProfileWrapper>
         <UserImg />
-        <UserName>MiniMini</UserName>
+        <UserName>User</UserName>
         <UserText>🍀 시간이 금이다!</UserText>
       </ProfileWrapper>
       <SideBarTodoBox todos={todos} />
