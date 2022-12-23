@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  AddBtn,
-  Hr,
-  MemoInput,
-  //TagBtn,
-  TodoInput,
-  TodoInputWrapper,
-} from './styled';
+import { AddBtn, Hr, MemoInput, TodoInput, TodoInputWrapper } from './styled';
 import { todoState } from '../../store/todoState';
 import SelectBox from './SelectBox';
 import Buttons from '../Buttons/Buttons';
@@ -14,6 +7,8 @@ import Buttons from '../Buttons/Buttons';
 const categoryOptions = [
   { value: '1', name: '학교' },
   { value: '2', name: '동아리' },
+  { value: '3', name: '건강' },
+  { value: '4', name: '일상생활' },
 ];
 
 const TodoInsult = ({ onInsert }) => {

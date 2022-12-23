@@ -1,5 +1,4 @@
 import { Instance } from './instance';
-//http://34.64.114.243:8080
 //조회
 export const getTodoList = async (categoryId) => {
   return await Instance.get(`/category/${categoryId}/todo`);
