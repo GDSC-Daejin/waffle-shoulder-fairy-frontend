@@ -11,10 +11,12 @@ import { getCategoryList } from '../../apis/category';
 const Home = () => {
   const setTodoList = async () => {
     const res = await getTodoList('1');
+    // eslint-disable-next-line no-console
     console.log(res);
   };
   const getSetCategory = async () => {
     const res = await getCategoryList();
+    // eslint-disable-next-line no-console
     console.log(res);
   };
 
@@ -26,16 +28,18 @@ const Home = () => {
     {
       id: 0,
       content: 'ex) 와플 회의 8시',
+      cateory: '동아리',
       isCompleted: false,
     },
   ]);
   const nextId = useRef(2);
   //투두추가
   const onInsert = useCallback(
-    (content) => {
+    (content, category) => {
       const todo = {
         id: nextId.current,
         content,
+        category,
         isCompleted: false,
       };
       setTodos(todos.concat(todo));

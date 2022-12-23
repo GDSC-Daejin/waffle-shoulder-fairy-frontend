@@ -125,7 +125,7 @@ export const TodoContent = styled.p`
     isCompleted &&
     css`
       text-decoration: line-through;
-      color: grey};
+      color: grey;
     `};
 `;
 
@@ -135,20 +135,19 @@ export const MemoContent = styled.p`
   width: 15%;
   text-align: center;
   align-items: center;
-
+  color: black;
   background-color: yellow;
   justify-content: space-between;
   margin: 5px;
   padding: 5px;
   border-radius: 10px;
   font-size: 1rem;
-  color: black;
   cursor: pointer;
   ${({ isCompleted }) =>
     isCompleted &&
     css`
       text-decoration: line-through;
-      color: grey};
+      color: grey;
     `};
 `;
 export const TodoNothing = styled.p`

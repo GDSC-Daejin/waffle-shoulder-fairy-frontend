@@ -29,7 +29,7 @@ const TodoInsult = ({ onInsert }) => {
   const addTodoHandler = (e) => {
     //내용이 입력되었으면 TODO 추가
     if (inputs.content) {
-      onInsert(content);
+      onInsert(content, category);
       addTodo(inputs);
       setInputs({
         content: '',
