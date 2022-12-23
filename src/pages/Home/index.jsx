@@ -1,12 +1,27 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { InputWrapper } from '../../styles/layouts';
 import TodoInsult from '../../components/Todo/TodoInsult';
 import TodoList from '../../components/Todo/TodoList';
 //import { mockTodoList } from '../../mock/todo';
 //import { todoState } from '../../store/todoState';
 import ToDoEdit from '../../components/Todo/TodoEdit';
+import { getTodoList } from '../../apis/todo';
+import { getCategoryList } from '../../apis/category';
 
 const Home = () => {
+  const setTodoList = async () => {
+    const res = await getTodoList('1');
+    console.log(res);
+  };
+  const getSetCategory = async () => {
+    const res = await getCategoryList();
+    console.log(res);
+  };
+
+  useEffect(() => {
+    setTodoList();
+    getSetCategory();
+  }, []);
   const [todos, setTodos] = useState([
     {
       id: 0,
