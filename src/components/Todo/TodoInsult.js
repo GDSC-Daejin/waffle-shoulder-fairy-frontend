@@ -9,8 +9,12 @@ import {
 } from './styled';
 import { todoState } from '../../store/todoState';
 import SelectBox from './SelectBox';
+import Buttons from '../Buttons/Buttons';
 
-const categoryOptions = ['동아리', '학교', '취미'];
+const categoryOptions = [
+  { value: '1', name: '학교' },
+  { value: '2', name: '동아리' },
+];
 
 const TodoInsult = ({ onInsert }) => {
   const [inputs, setInputs] = useState({
@@ -48,6 +52,16 @@ const TodoInsult = ({ onInsert }) => {
   return (
     <TodoInputWrapper>
       <form>
+        <Buttons
+          value={inputs.category}
+          setValue={(value) => {
+            setInputs((state) => ({
+              ...state,
+              category: value,
+            }));
+          }}
+          options={categoryOptions}
+        />
         {/* 내용 작성 */}
         <TodoInput
           placeholder="추가할 일정"
