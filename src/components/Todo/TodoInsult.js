@@ -5,10 +5,10 @@ import SelectBox from './SelectBox';
 import Buttons from '../Buttons/Buttons';
 
 const categoryOptions = [
-  { value: 1, name: '학교' },
-  { value: 2, name: '동아리' },
-  { value: 3, name: '건강' },
-  { value: 4, name: '일상생활' },
+  { value: 1, name: 1 },
+  { value: 2, name: 2 },
+  { value: 3, name: 3 },
+  { value: 4, name: 4 },
 ];
 
 const TodoInsult = ({ onInsert }) => {
