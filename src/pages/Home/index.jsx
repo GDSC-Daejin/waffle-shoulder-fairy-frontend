@@ -5,7 +5,7 @@ import TodoList from '../../components/Todo/TodoList';
 import { mockTodoList } from '../../mock/todo';
 //import { todoState } from '../../store/todoState';
 import ToDoEdit from '../../components/Todo/TodoEdit';
-import { getTodoList } from '../../apis/todo';
+import { addTodo, getTodoList } from '../../apis/todo';
 import { getCategoryList } from '../../apis/category';
 
 const Home = () => {
@@ -32,16 +32,9 @@ const Home = () => {
     // eslint-disable-next-line no-console
     console.log(res);
   };
-  //추가하기
-  const addTodoList = async () => {
-    const res = await addTodoList(todos, todos.category);
-    // eslint-disable-next-line no-console
-    console.log(res);
-  };
   useEffect(() => {
     setTodoList();
     getSetCategory();
-    addTodoList();
   }, []);
   //투두추가
   const onInsert = useCallback(
@@ -52,7 +45,12 @@ const Home = () => {
         category,
         isCompleted: false,
       };
-      //투두 추가하기 api
+      //추가하기
+      const addTodoList = async () => {
+        const res = await addTodo(todo, todo.category);
+        // eslint-disable-next-line no-console
+        console.log(res);
+      };
       setTodos(todos.concat(todo));
       nextId.current++;
     },
