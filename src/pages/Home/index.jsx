@@ -63,24 +63,11 @@ const Home = () => {
     },
     [todos],
   );
-  //투두수정
-  const [insertToggle, setInsertToggle] = useState(false); //플래그 역할을 해줄 state
-  const [selectedTodo, setSelectedTodo] = useState(null);
-  const onInsertToggle = () => {
-    if (selectedTodo) {
-      setSelectedTodo(null);
-    }
-    setInsertToggle((prev) => !prev);
-  };
-  //수정아이콘 onClick event 함수
-  const onChangeSelectedTodo = (todo) => {
-    setSelectedTodo(todo);
-  };
   return (
     <>
       <InputWrapper>
         <TodoInsult onInsert={onInsert} />
-        {insertToggle && <ToDoEdit />}
+        <ToDoEdit />
       </InputWrapper>
       <TodoList todos={todos} onRemove={onRemove} />
     </>
