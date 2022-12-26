@@ -14,11 +14,14 @@ export const todoState = create(
         const { data } = await getTodoList();
         return { todos: data };
       }),
+
     addTodo: (payload) => set(async (state) => await addTodo(payload)),
+
     removeTodo: (id) =>
       set(async (state) => {
         await removeTodo(id);
       }),
+
     updateTodo: (data) =>
       set(async (state) => {
         const payload = {
@@ -28,6 +31,7 @@ export const todoState = create(
         };
         await updateTodo(payload, data.id);
       }),
+
     toggleTodo: (data) =>
       set(async (state) => {
         const payload = {

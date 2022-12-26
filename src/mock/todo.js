@@ -1,9 +1,8 @@
 export const mockTodoList = [
   {
-    id: 1,
-    content: '오늘은 무엇을 할까요?',
+    id: 0,
+    content: 'ex) 와플 회의 8시 mock',
+    cateory: '동아리',
     isCompleted: false,
-    //date: new Date().toISOString(),
-    //category: '일상',
   },
 ];
