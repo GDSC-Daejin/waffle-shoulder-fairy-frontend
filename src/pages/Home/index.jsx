@@ -52,6 +52,7 @@ const Home = () => {
         category,
         isCompleted: false,
       };
+      //투두 추가하기 api
       addTodoList(todos, todos.id);
       setTodos(todos.concat(todo));
       nextId.current++;
