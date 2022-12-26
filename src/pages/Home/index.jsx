@@ -4,7 +4,6 @@ import TodoInsult from '../../components/Todo/TodoInsult';
 import TodoList from '../../components/Todo/TodoList';
 import { mockTodoList } from '../../mock/todo';
 //import { todoState } from '../../store/todoState';
-import ToDoEdit from '../../components/Todo/TodoEdit';
 import { getTodoList } from '../../apis/todo';
 import { getCategoryList } from '../../apis/category';
 
