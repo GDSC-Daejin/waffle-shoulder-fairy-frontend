@@ -82,7 +82,6 @@ const Home = () => {
     <>
       <InputWrapper>
         <TodoInsult onInsert={onInsert} />
-        {insertToggle && <ToDoEdit />}
       </InputWrapper>
       <TodoList todos={todos} onRemove={onRemove} />
     </>
