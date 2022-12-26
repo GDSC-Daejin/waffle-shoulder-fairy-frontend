@@ -20,16 +20,16 @@ const Home = () => {
     // eslint-disable-next-line no-console
     console.log(res);
   };
-  //추가
+  //추가하기
   const addTodoList = async () => {
-    const res = await addTodoList('test', '1');
+    const res = await addTodoList();
     // eslint-disable-next-line no-console
     console.log(res);
   };
-
   useEffect(() => {
     setTodoList();
     getSetCategory();
+    addTodoList();
   }, []);
   const [todos, setTodos] = useState([
     {
@@ -52,6 +52,7 @@ const Home = () => {
         category,
         isCompleted: false,
       };
+      addTodoList(todos, todos.id);
       setTodos(todos.concat(todo));
       nextId.current++;
     },
