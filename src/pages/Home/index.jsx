@@ -9,28 +9,6 @@ import { getTodoList } from '../../apis/todo';
 import { getCategoryList } from '../../apis/category';
 
 const Home = () => {
-  //조회
-  const setTodoList = async () => {
-    const res = await getTodoList('1');
-    // eslint-disable-next-line no-console
-    console.log(res);
-  };
-  const getSetCategory = async () => {
-    const res = await getCategoryList('1');
-    // eslint-disable-next-line no-console
-    console.log(res);
-  };
-  //추가하기
-  const addTodoList = async () => {
-    const res = await addTodoList();
-    // eslint-disable-next-line no-console
-    console.log(res);
-  };
-  useEffect(() => {
-    setTodoList();
-    getSetCategory();
-    addTodoList();
-  }, []);
   const [todos, setTodos] = useState([
     {
       id: 0,
@@ -43,6 +21,28 @@ const Home = () => {
     },
   ]);
   const nextId = useRef(2);
+  //조회
+  const setTodoList = async () => {
+    const res = await getTodoList(todos.cateory);
+    // eslint-disable-next-line no-console
+    console.log(res);
+  };
+  const getSetCategory = async () => {
+    const res = await getCategoryList(todos.category);
+    // eslint-disable-next-line no-console
+    console.log(res);
+  };
+  //추가하기
+  const addTodoList = async () => {
+    const res = await addTodoList(todos, todos.category);
+    // eslint-disable-next-line no-console
+    console.log(res);
+  };
+  useEffect(() => {
+    setTodoList();
+    getSetCategory();
+    addTodoList();
+  }, []);
   //투두추가
   const onInsert = useCallback(
     (content, category) => {
@@ -53,7 +53,6 @@ const Home = () => {
         isCompleted: false,
       };
       //투두 추가하기 api
-      addTodoList(todos, todos.id);
       setTodos(todos.concat(todo));
       nextId.current++;
     },
