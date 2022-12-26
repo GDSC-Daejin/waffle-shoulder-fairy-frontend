@@ -5,10 +5,10 @@ import SelectBox from './SelectBox';
 import Buttons from '../Buttons/Buttons';
 
 const categoryOptions = [
-  { value: 1, name: 1 },
-  { value: 2, name: 2 },
-  { value: 3, name: 3 },
-  { value: 4, name: 4 },
+  { value: 1, name: '안녕' },
+  { value: 2, name: '나는' },
+  { value: 3, name: '유저' },
+  { value: 4, name: '야' },
 ];
 
 const TodoInsult = ({ onInsert }) => {
@@ -16,9 +16,8 @@ const TodoInsult = ({ onInsert }) => {
     content: '',
     category: '',
   });
-  const { addTodo } = todoState();
 
-  const { content, category } = inputs; // 비구조화 할당을 통해 값 추출
+  const { addTodo } = todoState();
 
   const onChange = (e) => {
     const { value, name } = e.target; // 우선 e.target 에서 name 과 value 를 추출
@@ -30,8 +29,11 @@ const TodoInsult = ({ onInsert }) => {
 
   const addTodoHandler = (e) => {
     //내용이 입력되었으면 TODO 추가
+    console.log(12323);
+    console.log(inputs);
+
     if (inputs.content) {
-      onInsert(content, category);
+      onInsert(inputs.content, inputs.category);
       addTodo(inputs);
       setInputs({
         content: '',
@@ -61,19 +63,19 @@ const TodoInsult = ({ onInsert }) => {
         <TodoInput
           placeholder="추가할 일정"
           name="content"
-          value={content}
+          value={inputs.content}
           type={'text'}
           onChange={onChange}
         />
         {/* 추가 버튼 */}
-        <AddBtn type="submit" onClick={addTodoHandler} />
+        <AddBtn onClick={addTodoHandler} />
         <Hr />
         {/* 메모 작성 */}
         <MemoInput
           placeholder="카테고리"
           name="category"
           type={'text'}
-          value={category}
+          value={inputs.category}
           onChange={onChange}
           size={'0.8rem'}
           height={'2rem'}

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { InputWrapper } from '../../styles/layouts';
 import TodoInsult from '../../components/Todo/TodoInsult';
 import TodoList from '../../components/Todo/TodoList';
@@ -20,7 +20,7 @@ const Home = () => {
       mockTodoList,
     },
   ]);
-  const nextId = useRef(2);
+
   //조회
   const setTodoList = async () => {
     const res = await getTodoList(todos.cateory);
@@ -38,21 +38,19 @@ const Home = () => {
   }, []);
   //투두추가
   const onInsert = useCallback(
-    (content, category) => {
+    async (content, categoryId) => {
+      console.log(content, categoryId);
       const todo = {
-        id: nextId.current,
-        content,
-        category,
-        isCompleted: false,
+        content: content,
+        categoryId: categoryId,
+        isChecked: false,
       };
+
       //추가하기
-      const addTodoList = async () => {
-        const res = await addTodo(todo, todo.category);
-        // eslint-disable-next-line no-console
-        console.log(res);
-      };
-      setTodos(todos.concat(todo));
-      nextId.current++;
+      const res = await addTodo(todo, categoryId);
+      console.log(res);
+
+      setTodos((todos) => todos.concat(todo));
     },
     [todos],
   );

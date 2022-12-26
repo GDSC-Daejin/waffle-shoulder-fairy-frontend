@@ -5,12 +5,7 @@ export const getTodoList = async (categoryId) => {
 };
 //등록
 export const addTodo = async (payload, categoryId) => {
-  return await Instance.post(`/category/${categoryId}/todo`, {
-    categoryId: categoryId, //카테고리 아이디
-    content: 'string', //일정
-    isChecked: true, //체크
-    memo: 'string', //상세메모
-  });
+  return await Instance.post(`/category/${categoryId}/todo`, payload);
 };
 //삭제
 export const removeTodo = async (categoryId) => {
