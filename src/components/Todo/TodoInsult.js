@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AddBtn, Hr, MemoInput, TodoInput, TodoInputWrapper } from './styled';
+import { AddBtn, Hr, TodoInput, TodoInputWrapper } from './styled';
 import { todoState } from '../../store/todoState';
 import SelectBox from './SelectBox';
 import Buttons from '../Buttons/Buttons';
@@ -68,16 +68,6 @@ const TodoInsult = ({ onInsert }) => {
         {/* 추가 버튼 */}
         <AddBtn type="submit" onClick={addTodoHandler} />
         <Hr />
-        {/* 메모 작성 */}
-        <MemoInput
-          placeholder="카테고리"
-          name="category"
-          type={'text'}
-          value={category}
-          onChange={onChange}
-          size={'0.8rem'}
-          height={'2rem'}
-        />
         <SelectBox
           value={inputs.category}
           setValue={(value) => {

@@ -19,16 +19,9 @@ const Home = () => {
     // eslint-disable-next-line no-console
     console.log(res);
   };
-  //추가하기
-  const addTodoList = async () => {
-    const res = await addTodoList();
-    // eslint-disable-next-line no-console
-    console.log(res);
-  };
   useEffect(() => {
     setTodoList();
     getSetCategory();
-    addTodoList();
   }, []);
   const [todos, setTodos] = useState([
     {
@@ -51,8 +44,12 @@ const Home = () => {
         category,
         isCompleted: false,
       };
-      //투두 추가하기 api
-      addTodoList(todos, todos.id);
+      //추가하기
+      const addTodoList = async () => {
+        const res = await addTodoList();
+        // eslint-disable-next-line no-console
+        console.log(res);
+      };
       setTodos(todos.concat(todo));
       nextId.current++;
     },
@@ -65,19 +62,6 @@ const Home = () => {
     },
     [todos],
   );
-  //투두수정
-  const [insertToggle, setInsertToggle] = useState(false); //플래그 역할을 해줄 state
-  const [selectedTodo, setSelectedTodo] = useState(null);
-  const onInsertToggle = () => {
-    if (selectedTodo) {
-      setSelectedTodo(null);
-    }
-    setInsertToggle((prev) => !prev);
-  };
-  //수정아이콘 onClick event 함수
-  const onChangeSelectedTodo = (todo) => {
-    setSelectedTodo(todo);
-  };
   return (
     <>
       <InputWrapper>
