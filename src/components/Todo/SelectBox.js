@@ -1,15 +1,15 @@
 import React from 'react';
 
-function SelectBox({ value, setValue, options }) {
+function SelectBox({ value, setValue, options, onChangeCategory }) {
   //selectBox onChange 함수
-  const onChangeSelectBox = (e) => {
-    setValue(e.target.value);
-  };
+  // const onChangeSelectBox = (e) => {
+  //   setValue(e.target.value);
+  // };
   return (
     <select
       // 받은 props를 설정해 값 넘겨주도록 설정
       value={value}
-      onChange={onChangeSelectBox}
+      onChange={onChangeCategory}
     >
       <option value="" disabled>
         카테고리 선택

@@ -20,14 +20,23 @@ const TodoInsult = ({ onInsert }) => {
   });
 
   const { addTodo } = todoState();
+
   //Todo 내용 input onChange함수.
-  // Category onChanege함수는 SelectBox.js에 있다.
   const onChange = (e) => {
     const { value, name } = e.target;
     console.log(e.target);
     setInputs({
       ...inputs,
       [name]: value,
+    });
+  };
+  // Category onChanege함수
+  const onChangeCategory = (e) => {
+    const { value, name } = e.target;
+    console.log(e.target);
+    setCategoryIdSelected({
+      ...categoryIdSelected,
+      [value]: value,
     });
   };
 
@@ -39,11 +48,13 @@ const TodoInsult = ({ onInsert }) => {
     if (inputs.content) {
       //TODO 임시로 카테고리 아이디를 1로 설정해놓았습니다.
       // onchange가 변경된 후 수정해주세요.
-      onInsert(inputs.content, '2');
+      onInsert(inputs.content, '1');
       addTodo(inputs);
       setInputs({
         content: '',
-        categoryId: '', //카테고리 인풋 없애기 정리 (1)
+      });
+      setCategoryIdSelected({
+        categoryId: '',
       });
     } else {
       //내용이 없으면 알림
@@ -81,8 +92,8 @@ const TodoInsult = ({ onInsert }) => {
           placeholder="카테고리"
           name="category"
           type={'text'}
-          value={inputs.category}
-          onChange={onChange}
+          value={categoryIdSelected.value}
+          onChange={onChangeCategory}
           size={'0.8rem'}
           height={'2rem'}
         />
@@ -96,6 +107,7 @@ const TodoInsult = ({ onInsert }) => {
             }));
           }}
           options={categoryOptions}
+          onChangeCategory={onChangeCategory}
         />
         {/* 카테고리 버튼 */}
         {/*<TagBtn />*/}
