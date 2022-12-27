@@ -9,7 +9,7 @@ import {
 } from './styled';
 
 const TodoListItem = ({ todo, onRemove, onToggle }) => {
-  const { id, content, category, checked } = todo;
+  const { id, content, categoryId, checked } = todo;
 
   return (
     <TodoItemWrapper>
@@ -19,7 +19,7 @@ const TodoListItem = ({ todo, onRemove, onToggle }) => {
         onClick={() => onToggle(id)}
       />
       <TodoContent isCompleted={checked}>{content}</TodoContent>
-      <MemoContent>{category}</MemoContent>
+      <MemoContent>{categoryId}</MemoContent>
       <EditBtn />
       <RemoveBtn onClick={() => onRemove(id)} />
     </TodoItemWrapper>

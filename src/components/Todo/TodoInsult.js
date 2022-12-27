@@ -14,15 +14,15 @@ const categoryOptions = [
 const TodoInsult = ({ onInsert }) => {
   const [inputs, setInputs] = useState({
     content: '',
-    //TODO 카테고리 ID를 의미하는지 카테고리 텍스트를 의미하는건지 의미가 확실하지 않습니다.
-    category: '',
+  });
+  const [categoryIdSelected, setCategoryIdSelected] = useState({
+    categoryId: '',
   });
 
   const { addTodo } = todoState();
-
+  //Todo 내용 input onChange함수.
+  // Category onChanege함수는 SelectBox.js에 있다.
   const onChange = (e) => {
-    //TODO e.target의 value는 selectBox에서의 name을 의미합니다.
-    // 각 데이터 마다 onChange함수를 따로 만들어보세요
     const { value, name } = e.target;
     console.log(e.target);
     setInputs({
@@ -39,11 +39,11 @@ const TodoInsult = ({ onInsert }) => {
     if (inputs.content) {
       //TODO 임시로 카테고리 아이디를 1로 설정해놓았습니다.
       // onchange가 변경된 후 수정해주세요.
-      onInsert(inputs.content, '1');
+      onInsert(inputs.content, '2');
       addTodo(inputs);
       setInputs({
         content: '',
-        category: '',
+        categoryId: '', //카테고리 인풋 없애기 정리 (1)
       });
     } else {
       //내용이 없으면 알림
@@ -87,11 +87,12 @@ const TodoInsult = ({ onInsert }) => {
           height={'2rem'}
         />
         <SelectBox
-          value={inputs.category}
+          value={categoryIdSelected.value}
+          //SelectBox에서 값이 변경되면 setCategoryIdSelected 값도 변경.
           setValue={(value) => {
             setInputs((state) => ({
               ...state,
-              category: value,
+              categoryId: value,
             }));
           }}
           options={categoryOptions}

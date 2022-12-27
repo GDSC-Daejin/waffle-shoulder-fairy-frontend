@@ -44,7 +44,7 @@
       "react/jsx-one-expression-per-line": 0,
       "no-nested-ternary": 0,
       "react/display-name": "off",
-      "no-console": "error",
+      "no-console": "off",
       "un-useless-escape": "off",
       "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
